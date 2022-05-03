@@ -1,1 +1,10 @@
+coverage
+dist
 node_modules
+tmp/*
+!tmp/.gitkeep
+.env
+.eslintignore
+yarn-error.log
+yarn.lock
+.vscode
