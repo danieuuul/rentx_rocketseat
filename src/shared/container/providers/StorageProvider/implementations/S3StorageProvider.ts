@@ -20,7 +20,6 @@ class S3StorageProvider implements IStorageProvider {
     const fileContent = await fs.promises.readFile(originalName);
 
     const ContentType = mime.getType(originalName);
-
     await this.client
       .putObject({
         Bucket: `${process.env.AWS_BUCKET}/${folder}`,
@@ -41,7 +40,7 @@ class S3StorageProvider implements IStorageProvider {
         Bucket: `${process.env.AWS_BUCKET}/${folder}`,
         Key: file,
       })
-      .promise();
+      .promise().catch(error => console.log("Couldn't delete the old avatar file."));
   }
 }
 

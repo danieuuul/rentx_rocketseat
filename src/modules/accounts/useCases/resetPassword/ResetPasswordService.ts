@@ -20,7 +20,7 @@ class ResetPasswordService {
     private userTokenRepository: IUserTokenRepository,
     @inject("DateProvider")
     private dateProvider: IDateProvider
-  ) {}
+  ) { }
 
   async run({ token, password }: IRequest): Promise<void> {
     const userToken = await this.userTokenRepository.findByRefreshToken(token);

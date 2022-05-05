@@ -5,6 +5,5 @@ tmp/*
 !tmp/.gitkeep
 .env
 .eslintignore
-yarn-error.log
-yarn.lock
+ormconfig.json
 .vscode

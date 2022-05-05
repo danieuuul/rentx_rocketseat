@@ -24,7 +24,7 @@ class IUser {
       case "local":
         return `${process.env.APP_API_URL}/avatar/${this.avatar}`;
       case "s3":
-        return `${process.env.AWS_BUCKER_URL}/avatar/${this.avatar}`;
+        return `${process.env.AWS_BUCKET_URL}/avatar/${this.avatar}`;
       default:
         return null;
     }

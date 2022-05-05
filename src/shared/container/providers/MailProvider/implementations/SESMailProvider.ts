@@ -25,8 +25,8 @@ class SESMailProvider implements IMailProvider {
     const templateParse = handlebars.compile(templateFileContent);
     const templateHTML = templateParse(variables);
     await this.client.sendMail({
-      from: "sender@example.com",
-      to: "recipient@example.com",
+      from: "RENTX <no-reply@dgrsolutions.com.br>",
+      to: "danieuuul@gmail.com",
       subject: "Message",
       html: templateHTML,
     });

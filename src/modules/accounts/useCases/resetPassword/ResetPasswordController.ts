@@ -9,7 +9,7 @@ class ResetPasswordController {
     const { password } = request.body;
     const resetPassowordService = container.resolve(ResetPasswordService);
 
-    resetPassowordService.run({ token: String(token), password });
+    await resetPassowordService.run({ token: String(token), password });
     return response.send();
   }
 }
