@@ -57,5 +57,5 @@ jobs:
             cd ~/app/rentx_rocketseat
             yarn
             ./node_modules/.bin/typeorm migration:run
-            pm2 restart ${{ secrets.API_NAME }}
+            pm2 restart rentx_api
             
