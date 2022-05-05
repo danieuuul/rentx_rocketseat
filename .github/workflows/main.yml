@@ -27,6 +27,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16.x          
+      
+      - name: Install Dependecies
+        run: yarn
         
       - name: Build Dist
         run: yarn build
