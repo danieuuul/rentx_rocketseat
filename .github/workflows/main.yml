@@ -42,5 +42,5 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
           source: "., !node_modules"
-          target: "~/app/rext_rocketseat"
+          target: "~/app/rentx_rocketseat"
           
