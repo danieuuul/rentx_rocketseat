@@ -26,15 +26,13 @@ jobs:
       - name: Setupe Nodejs
         uses: actions/setup-node@v3
         with:
-          node-version: 16.x
-          
-      - name: Install Dependecies
-        run: yarn
+          node-version: 16.x          
         
       - name: Build Dist
         run: yarn build
       
-      - uses: appleboy/scp-action@master
+      - name: Copy Files
+        uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
@@ -43,4 +41,18 @@ jobs:
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
           source: "., !node_modules"
           target: "~/app/rentx_rocketseat"
-          
+        
+      - name: Update API
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          port: ${{ secrets.SSH_PORT }}
+          key: ${{ secrets.SSH_KEY }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          script: 
+            cd ~/app/rentx_rocketseat
+            yarn
+            ./node_modules/.bin/typeorm migration:run
+            pm2 restart ${{ secrets.API_NAME }}
+            
