@@ -53,9 +53,9 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
-          script: 
+          script: |
             cd ~/app/rentx_rocketseat
             yarn
             ./node_modules/.bin/typeorm migration:run
-            pm2 restart rentx_api
+            pm2 restart ${{ secrets.API_NAME }}
             
