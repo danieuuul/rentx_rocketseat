@@ -45,7 +45,7 @@ jobs:
           source: "., !node_modules"
           target: "~/app/rentx_rocketseat"
         
-      - name: Update API
+      - name: Update node_modules
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
